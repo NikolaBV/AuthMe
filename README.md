@@ -15,4 +15,4 @@ I am following the quickstart guides from microsoft and reading the documentatio
 - [Documentation](https://learn.microsoft.com/en-us/entra/identity-platform/msal-overview?fbclid=IwAR1CSmaZxAvWtmCZX2ZEohfdA_g40RpqUOHQzN60uR1wYr6Pk36cobvhWDI_aem_AQIY0N1LgmUuiQR80f1zzXy2ZL5Rh5wsF1Q0iwE2I4OICP7nGxLZVOIU3VL3CWb-X5ajXNl-WDIi6rCgRUvhvkCZ)
 - [Quickstart](https://learn.microsoft.com/en-us/entra/identity-platform/tutorial-single-page-app-react-register-app)
 - [Snippets](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code?tabs=apptype)
-
+- [MSAL-React-Library](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)
