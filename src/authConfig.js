@@ -10,16 +10,17 @@ import { LogLevel } from "@azure/msal-browser";
  * For a full list of MSAL.js configuration parameters, visit:
  * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md
  */
-
 export const msalConfig = {
   auth: {
-    clientId: "09872f6c-e2d9-4e7c-8edd-7c8c11c380c0",
+    clientId: "6929686a-53f5-4adf-9e7f-eae0c279691e", // This is the ONLY mandatory field that you need to supply.
     authority:
-    "https://login.microsoftonline.com/585e7951-eeb6-469f-9f73-e00c1eaaa5c0",
-    redirectUri: "http://localhost:3000",
+      "https://login.microsoftonline.com/765c2415-3750-4d61-b6e4-d3cbf3cb2ce0", // Defaults to "https://login.microsoftonline.com/common"
+    redirectUri: "http://localhost:3000/", // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
+    postLogoutRedirectUri: "/", // Indicates the page to navigate after logout.
+    navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
   },
   cache: {
-    cacheLocation: "sessionStorage", // This configures where your cache will be stored
+    cacheLocation: "sessionStorage", // Configures cache location. "sessionStorage" is more secure, but "localStorage" gives you SSO between tabs.
     storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
   },
   system: {
@@ -56,13 +57,14 @@ export const msalConfig = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
-  scopes: ["User.Read"],
+  scopes: [],
 };
 
 /**
- * Add here the scopes to request when obtaining an access token for MS Graph API. For more information, see:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md
+ * An optional silentRequest object can be used to achieve silent SSO
+ * between applications by providing a "login_hint" property.
  */
-export const graphConfig = {
-  graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
+export const silentRequest = {
+  scopes: ["openid", "profile"],
+  loginHint: "example@domain.net",
 };
