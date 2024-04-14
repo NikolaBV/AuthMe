@@ -1,3 +1,4 @@
+import "./App.css";
 import {
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
@@ -5,11 +6,10 @@ import {
 } from "@azure/msal-react";
 
 import { loginRequest } from "./authConfig";
-import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const { instance, accounts } = useMsal();
+  const { instance } = useMsal();
   const [user, setUser] = useState("");
 
   const handleLoginPopup = () => {
@@ -43,7 +43,7 @@ function App() {
         <h1>Login</h1>
       </UnauthenticatedTemplate>
       <AuthenticatedTemplate>
-        <h1>You are in {user}</h1>
+        <h1>You are {user}</h1>
       </AuthenticatedTemplate>
     </>
   );
