@@ -1,4 +1,5 @@
 import "./App.css";
+import "./styles/styles.css"
 import {
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
@@ -35,16 +36,25 @@ function App() {
   };
   return (
     <>
-      <h1> User</h1>
-      <button onClick={handleLoginPopup}>Log in</button>
-      <button onClick={handleLogoutPopup}>Log out</button>
-      <button onClick={handleUserDetails}>Details</button>
+      <button onClick={handleLogoutPopup} class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      Log in
+</button>
+<button onClick={handleLogoutPopup} class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      Log out
+</button>
+      <button onClick={handleUserDetails} class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      User details
+</button>
       <UnauthenticatedTemplate>
         <h1>Login</h1>
       </UnauthenticatedTemplate>
       <AuthenticatedTemplate>
         <h1>You are {user}</h1>
       </AuthenticatedTemplate>
+
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     </>
   );
 }
