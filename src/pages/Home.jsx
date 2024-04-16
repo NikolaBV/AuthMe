@@ -45,18 +45,24 @@ function Home() {
       <TopNav
         handleLoginPopup={handleLoginPopup}
         handleLogoutPopup={handleLogoutPopup}
-        isLoggedIn={loggedIn}
-        user={user}
+        loggedIn={loggedIn}
       ></TopNav>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-4xl">Welcome to the Home Page</h1>
-        <p className="text-lg mt-4">
-          This page is accessible to all users, authenticated or not.
-        </p>
-      </div>
+      <UnauthenticatedTemplate>
+        <div className="flex flex-col items-center justify-center h-screen">
+          <h1 className="text-4xl">Welcome to the Home Page</h1>
+          <p className="text-lg mt-4">
+            This page is accessible to unautheticated users.
+          </p>
+        </div>
+      </UnauthenticatedTemplate>
 
       <AuthenticatedTemplate>
-        <h1>{user}</h1>
+        <div className="flex flex-col items-center justify-center h-screen">
+          <h1 className="text-4xl">Welcome {user}</h1>
+          <p className="text-lg mt-4">
+            This page is available only if you are authenticated
+          </p>
+        </div>
       </AuthenticatedTemplate>
     </>
   );
